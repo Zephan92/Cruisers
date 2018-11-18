@@ -1,0 +1,7 @@
+*.db
+*.meta
+.vs/*
+Library/*
+Temp/*
+Builds/*
+obj/
