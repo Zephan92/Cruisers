@@ -9,10 +9,10 @@ public abstract class SpawnerHotspotBase<T> : HotspotBase
 	public bool RespawnOnInterval = false;
 	public float RespawnTimeoutSeconds = 5f;
 
-	internal Vector3 _spawnLocation;
+	private Vector3 _spawnLocation;
 	private bool _shouldSpawn = false;
 
-	public abstract SpawnableEntity Spawn();
+	public abstract SpawnableEntity Spawn(Vector3 spawnLocation);
 
 	public void StartSpawning()
 	{
@@ -53,7 +53,7 @@ public abstract class SpawnerHotspotBase<T> : HotspotBase
 			return;
 		}
 
-		SpawnableEntity entity = Spawn();
+		SpawnableEntity entity = Spawn(_spawnLocation);
 
 		if (RespawnOnEntityDestroy)
 		{

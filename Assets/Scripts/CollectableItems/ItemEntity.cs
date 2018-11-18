@@ -2,9 +2,9 @@
 using System.Collections;
 using UnityEngine.Events;
 
-public class CollectableItem : MonoBehaviour, ICollectableItem
+public class ItemEntity : SpawnableEntity, ICollectableItem
 {
-	public ItemType Type { get; set; }
+	public ItemType Type;
 	public UnityAction OnCollected { get; set; }
 
 	public float PickupZoneRadius = 0.75f;
@@ -18,9 +18,7 @@ public class CollectableItem : MonoBehaviour, ICollectableItem
 		SphereCollider collider = gameObject.AddComponent<SphereCollider>();
 		collider.radius = PickupZoneRadius;
 		collider.isTrigger = true;
-
-		GameObject modelGameObject = Instantiate(Resources.Load($"{Type}ItemModel"), transform) as GameObject;
-		_model = modelGameObject.transform;
+		_model = transform.Find("Model");
 	}
 
 	private void FixedUpdate()

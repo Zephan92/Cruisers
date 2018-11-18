@@ -1,32 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(EnemyEntityFactory))]
 public class EnemySpawner : SpawnerHotspotBase<EnemyType>
 {
 	public int MaxEnemyCount = 15;
 	[ReadOnly] public int CurrentEnemyCount;
 
-	private EnemyEntityFactory _factory;
-
 	private new void Awake()
 	{
 		base.Awake();
-		_factory = gameObject.GetComponent<EnemyEntityFactory>();
-		if (_factory == null)
-		{
-			_factory = gameObject.AddComponent<EnemyEntityFactory>();
-		}
 		CurrentEnemyCount = 0;
 	}
 
-	public override SpawnableEntity Spawn()
+	public override SpawnableEntity Spawn(Vector3 spawnLocation)
 	{
 		if (SpawnableEntities != null && SpawnableEntities.Length > 0)
 		{
 			int index = Random.Range(0, SpawnableEntities.Length);
 			EnemyType enemyType = SpawnableEntities[index];
-			return SpawnEnemy(enemyType, _spawnLocation);
+			return SpawnEnemy(enemyType, spawnLocation);
 		}
 
 		return null;
@@ -39,13 +31,14 @@ public class EnemySpawner : SpawnerHotspotBase<EnemyType>
 			return null;
 		}
 
-		SpawnableEntity enemy =  _factory.Create(enemyType, pos, transform);
-		if (enemy != null)
-		{
-			enemy.OnDestroyed += () => { CurrentEnemyCount--; };
-		}
+		GameObject enemy = Instantiate(Resources.Load($"{enemyType}Model"), transform) as GameObject;
 
+		var entity = enemy.GetComponent<EnemyEntity>();
+		if (entity != null)
+		{
+			entity.OnDestroyed += () => { CurrentEnemyCount--; };
+		}
 		CurrentEnemyCount++;
-		return enemy;
+		return entity;
 	}
 }

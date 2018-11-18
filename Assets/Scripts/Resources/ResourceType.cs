@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum ItemType
+public enum ResourceType
 {
-	Turret,
-	Wall,
-	Trap,
+	Small,
+	Medium,
+	Large
 }

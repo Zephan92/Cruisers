@@ -21,7 +21,7 @@ public class Turret : MonoBehaviour
 			var str = Mathf.Min(5 * Time.deltaTime, 1);
 			_barrel.rotation = Quaternion.Lerp(_barrel.rotation, targetRotation, str);
 
-			Target.DealDamage(2);
+			Target.TakeDamage(2);
 		}
 		else
 		{

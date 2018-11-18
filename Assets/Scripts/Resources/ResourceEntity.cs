@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum ItemType
+public class ResourceEntity : SpawnableEntity
 {
-	Turret,
-	Wall,
-	Trap,
+	
 }

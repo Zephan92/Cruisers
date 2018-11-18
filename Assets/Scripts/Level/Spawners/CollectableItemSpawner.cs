@@ -3,41 +3,29 @@ using System.Collections;
 using System;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(CollectableItemEntityFactory))]
 public class CollectableItemSpawner : SpawnerHotspotBase<ItemType>
 {
-	private CollectableItemEntityFactory _factory;
-
-	private new void Awake()
-	{
-		base.Awake();
-		_factory = gameObject.GetComponent<CollectableItemEntityFactory>();
-		if (_factory == null)
-		{
-			_factory = gameObject.AddComponent<CollectableItemEntityFactory>();
-		}
-	}
-
-	public override SpawnableEntity Spawn()
+	public override SpawnableEntity Spawn(Vector3 spawnLocation)
 	{
 		if (SpawnableEntities != null && SpawnableEntities.Length > 0)
 		{
 			int index = Random.Range(0, SpawnableEntities.Length);
 			ItemType itemType = SpawnableEntities[index];
-			return SpawnCollectableItem(itemType, _spawnLocation);
+			return SpawnCollectableItem(itemType, spawnLocation);
 		}
 
 		return null;
 	}
 
-	private SpawnableEntity SpawnCollectableItem(ItemType itemType, Vector3 pos)
+	private SpawnableEntity SpawnCollectableItem(ItemType type, Vector3 pos)
 	{
-		SpawnableEntity go = _factory.Create(itemType, pos, transform);
-		ICollectableItem item = go.GetComponent<CollectableItem>();
-		if (item != null)
+		GameObject go = Instantiate(Resources.Load($"{type}Item"), transform) as GameObject;
+		var entity = go.AddComponent<ItemEntity>();
+		if (entity != null)
 		{
-			item.OnCollected += () => { };
+			entity.OnCollected += () => { };
 		}
-		return go;
+		entity.Type = type;
+		return entity;
 	}
 }

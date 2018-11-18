@@ -60,12 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CollectableItems\CollectableItem.cs" />
-    <Compile Include="Assets\Scripts\CollectableItems\CollectableItemEntityFactory.cs" />
     <Compile Include="Assets\Scripts\CollectableItems\ICollectableItem.cs" />
-    <Compile Include="Assets\Scripts\EditorUtilities\ReadOnlyAttribute.cs" />
+    <Compile Include="Assets\Scripts\CollectableItems\ItemEntity.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemies\Grounder.cs" />
-    <Compile Include="Assets\Scripts\Enemies\EnemyEntityFactory.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyEntity.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\ItemType.cs" />
@@ -73,14 +71,17 @@
     <Compile Include="Assets\Scripts\Level\LevelController.cs" />
     <Compile Include="Assets\Scripts\Level\Spawners\CollectableItemSpawner.cs" />
     <Compile Include="Assets\Scripts\Level\Spawners\EnemySpawner.cs" />
-    <Compile Include="Assets\Scripts\Level\Spawners\LevelEntityFactory.cs" />
+    <Compile Include="Assets\Scripts\Level\Spawners\ResourceSpawner.cs" />
     <Compile Include="Assets\Scripts\Level\Spawners\SpawnableEntity.cs" />
     <Compile Include="Assets\Scripts\Level\Spawners\SpawnerHotspotBase.cs" />
     <Compile Include="Assets\Scripts\Level\Turret.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Resources\ResourceEntity.cs" />
+    <Compile Include="Assets\Scripts\Resources\ResourceType.cs" />
     <Compile Include="Assets\Scripts\UserInterface\BuildMenu.cs" />
     <Compile Include="Assets\Scripts\Utilities\DrawingHelper.cs" />
+    <Compile Include="Assets\Scripts\Utilities\EditorUtilities\ReadOnlyAttribute.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Sourcecode/Cruisers/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

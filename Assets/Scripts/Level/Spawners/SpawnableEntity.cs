@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Events;
 
-public class SpawnableEntity : MonoBehaviour
+public class SpawnableEntity: MonoBehaviour
 {
 	public UnityAction OnDestroyed;
 	private bool _quitting;
