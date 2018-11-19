@@ -19,7 +19,7 @@ public class CollectableItemSpawner : SpawnerHotspotBase<ItemType>
 
 	private SpawnableEntity SpawnCollectableItem(ItemType type, Vector3 pos)
 	{
-		GameObject go = Instantiate(Resources.Load($"{type}Item"), transform) as GameObject;
+		GameObject go = Instantiate(Resources.Load($"Items/{type}"), transform) as GameObject;
 		var entity = go.AddComponent<ItemEntity>();
 		if (entity != null)
 		{

@@ -69,6 +69,8 @@
     <Compile Include="Assets\Scripts\Inventory\ItemType.cs" />
     <Compile Include="Assets\Scripts\Level\HotspotBase.cs" />
     <Compile Include="Assets\Scripts\Level\LevelController.cs" />
+    <Compile Include="Assets\Scripts\Level\Loot.cs" />
+    <Compile Include="Assets\Scripts\Level\LootDrop.cs" />
     <Compile Include="Assets\Scripts\Level\Spawners\CollectableItemSpawner.cs" />
     <Compile Include="Assets\Scripts\Level\Spawners\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Level\Spawners\ResourceSpawner.cs" />
@@ -80,6 +82,9 @@
     <Compile Include="Assets\Scripts\Resources\ResourceEntity.cs" />
     <Compile Include="Assets\Scripts\Resources\ResourceType.cs" />
     <Compile Include="Assets\Scripts\UserInterface\BuildMenu.cs" />
+    <Compile Include="Assets\Scripts\UserInterface\MenuBase.cs" />
+    <Compile Include="Assets\Scripts\UserInterface\PlayerMenu.cs" />
+    <Compile Include="Assets\Scripts\UserInterface\UseMenu.cs" />
     <Compile Include="Assets\Scripts\Utilities\DrawingHelper.cs" />
     <Compile Include="Assets\Scripts\Utilities\EditorUtilities\ReadOnlyAttribute.cs" />
     <Reference Include="UnityEditor.StandardEvents">

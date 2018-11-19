@@ -31,7 +31,7 @@ public class EnemySpawner : SpawnerHotspotBase<EnemyType>
 			return null;
 		}
 
-		GameObject enemy = Instantiate(Resources.Load($"{enemyType}Model"), transform) as GameObject;
+		GameObject enemy = Instantiate(Resources.Load($"Enemies/{enemyType}"), transform) as GameObject;
 
 		var entity = enemy.GetComponent<EnemyEntity>();
 		if (entity != null)

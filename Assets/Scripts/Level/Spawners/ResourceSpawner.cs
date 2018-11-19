@@ -17,7 +17,7 @@ public class ResourceSpawner : SpawnerHotspotBase<ResourceType>
 
 	private SpawnableEntity SpawnCollectableItem(ResourceType type, Vector3 pos)
 	{
-		GameObject go = Instantiate(Resources.Load($"{type}Resource"), transform) as GameObject;
+		GameObject go = Instantiate(Resources.Load($"LevelResources/{type}"), transform) as GameObject;
 		var entity = go.GetComponent<ResourceEntity>();
 		return entity;
 	}

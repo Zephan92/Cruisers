@@ -3,24 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class BuildMenu : MonoBehaviour
+public class BuildMenu : MenuBase
 {
 	private LinkedListNode<ItemType> _current;
-
 	private Text _previousText;
 	private Text _currentText;
 	private Text _nextText;
-
-	private LevelController _levelController;
-	private Player _player;
-	private Inventory _inventory;
 	private LinkedList<ItemType> _menuItems;
+	private LevelController _levelController;
+	private Inventory _inventory;
+	private Player _player;
 
 	private void Awake()
 	{
+		_menuItems = new LinkedList<ItemType>();
 		_levelController = FindObjectOfType<LevelController>();
 		_player = FindObjectOfType<Player>();
-		_menuItems = new LinkedList<ItemType>();
+
 		_previousText = transform.Find("Previous").GetComponentInChildren<Text>();
 		_currentText = transform.Find("Current").GetComponentInChildren<Text>();
 		_nextText = transform.Find("Next").GetComponentInChildren<Text>();
@@ -34,7 +33,7 @@ public class BuildMenu : MonoBehaviour
 		UpdateBuildMenu();
 	}
 
-	public void Previous()
+	public override void Option1()
 	{
 		if (_current.Previous != null)
 		{
@@ -48,7 +47,7 @@ public class BuildMenu : MonoBehaviour
 		UpdateBuildMenu();
 	}
 
-	public void Place()
+	public override void Option2()
 	{
 		if (_current != null)
 		{
@@ -57,7 +56,7 @@ public class BuildMenu : MonoBehaviour
 		}
 	}
 
-	public void Next()
+	public override void Option3()
 	{
 		if (_current.Next != null)
 		{
@@ -70,6 +69,7 @@ public class BuildMenu : MonoBehaviour
 
 		UpdateBuildMenu();
 	}
+
 
 	private void AddItem(ItemType type)
 	{

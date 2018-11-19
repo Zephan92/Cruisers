@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114969854740257720}
   - component: {fileID: 195522118557527818}
   m_Layer: 0
-  m_Name: GrounderModel
+  m_Name: Grounder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

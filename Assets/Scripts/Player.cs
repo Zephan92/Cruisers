@@ -1,9 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Inventory))]
 public class Player : MonoBehaviour
 {
+	private SpawnableEntity _currentSelectedEntity;
+	public SpawnableEntity CurrentSelectedEntity
+	{
+		get { return _currentSelectedEntity; }
+		set
+		{
+			_currentSelectedEntity = value;
+			if (value != null)
+			{
+				OnEntitySelected?.Invoke(value);
+			}
+			else
+			{
+				OnEntityDeselected?.Invoke();
+			}
+		}
+	}
+	public UnityAction<SpawnableEntity> OnEntitySelected;
+	public UnityAction OnEntityDeselected;
 
 	public Vector3 BuildTargetPosition => _box.transform.position;
 	public Vector3 BuildDestination => _box.transform.position - new Vector3(0,2,0);
@@ -30,16 +50,6 @@ public class Player : MonoBehaviour
 		_model = transform.Find("Model");
 		_buildTarget = transform.Find("BuildTarget");
 		_box = _buildTarget.Find("Box");
-	}
-
-	private void Start()
-	{
-		 
-	}
-
-	private void Update()
-	{
-
 	}
 
 	private void FixedUpdate()

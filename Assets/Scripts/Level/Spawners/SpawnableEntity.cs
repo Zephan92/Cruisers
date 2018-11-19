@@ -2,10 +2,18 @@
 using System.Collections;
 using UnityEngine.Events;
 
-public class SpawnableEntity: MonoBehaviour
+public enum EntityType
+{
+	Resource,
+	Enemy,
+	Item,
+}
+
+public abstract class SpawnableEntity : MonoBehaviour
 {
 	public UnityAction OnDestroyed;
 	private bool _quitting;
+	public abstract EntityType EntityType { get; }
 
 	private void OnDestroy()
 	{
@@ -15,7 +23,7 @@ public class SpawnableEntity: MonoBehaviour
 		}
 	}
 
-	void OnApplicationQuit()
+	private void OnApplicationQuit()
 	{
 		_quitting = true;
 	}

@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyEntity : SpawnableEntity
 {
 	public int Health = 100;
+	public override EntityType EntityType => EntityType.Enemy;
 
 
 	private void Awake()

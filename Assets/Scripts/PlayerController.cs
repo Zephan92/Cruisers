@@ -12,13 +12,13 @@ public class PlayerController : MonoBehaviour {
 	//BuildTarget
 	private Vector3 _currentSnap;
 	private GameObject _currentBuildTarget;
-	private BuildMenu _buildMenu;
+	private PlayerMenu _playerMenu;
 
 	private void Awake()
 	{
 		_player = GetComponent<Player>();
 		_playerCamera = Camera.main;
-		_buildMenu = FindObjectOfType<BuildMenu>();
+		_playerMenu = FindObjectOfType<PlayerMenu>();
 	}
 
 	private void Start()
@@ -53,17 +53,17 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (Input.GetButtonDown("Previous"))
 		{
-			_buildMenu.Previous();
+			_playerMenu.Option1();
 		}
 
 		if (Input.GetButtonDown("Place"))
 		{
-			_buildMenu.Place();
+			_playerMenu.Option2();
 		}
 
 		if (Input.GetButtonDown("Next"))
 		{
-			_buildMenu.Next();
+			_playerMenu.Option3();
 		}
 	}
 

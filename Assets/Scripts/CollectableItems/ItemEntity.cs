@@ -6,6 +6,7 @@ public class ItemEntity : SpawnableEntity, ICollectableItem
 {
 	public ItemType Type;
 	public UnityAction OnCollected { get; set; }
+	public override EntityType EntityType => EntityType.Item;
 
 	public float PickupZoneRadius = 0.75f;
 	public float RotationSpeed = 3f;
